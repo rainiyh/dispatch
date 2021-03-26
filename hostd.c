@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2021, <GROUP MEMBERS>
  * All rights reserved.
- * 
+ *
  */
 #include <stddef.h>
 #include <stdlib.h>
@@ -164,7 +164,7 @@ int main(int argc, char *argv[])
     {
         printf("No arguments passed. Assuming default location(./dispatchlist)\n");
         dispatch_file = "dispatchlist";
-    } 
+    }
     else
     {
         dispatch_file = argv[1];
@@ -179,9 +179,13 @@ int main(int argc, char *argv[])
     int time_tick = 0;
     for (; 1; time_tick++)
     {
-        int np = check_for_new_process(/*WRITE YOUR CODE HERE*/);
+        int np = check_for_new_process(/*WRITE YOUR CODE HERE*/
+            pending_processes, time_tick, &rt, &hi, &me, &lo
+        );
         printf("Time: %03d > %d new processes have arrived\n", time_tick, np);
-        dispatch_cycle(/*WRITE YOUR CODE HERE*/);
+        dispatch_cycle(/*WRITE YOUR CODE HERE*/
+            &rt, &hi, &me, &lo, &res_avail, &memory
+        );
     }
 
 
@@ -192,6 +196,6 @@ int main(int argc, char *argv[])
     // Perform the appropriate signal handling / resource allocation and de-alloaction
 
     // Repeat until all processes have been executed, all queues are empty
-     
+
     return EXIT_SUCCESS;
 }

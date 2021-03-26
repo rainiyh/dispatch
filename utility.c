@@ -3,10 +3,11 @@
  *
  * Copyright (C) 2015, <GROUP MEMBERS>
  * All rights reserved.
- * 
+ *
  */
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "utility.h"
 
 // Define your utility functions here, you will likely need to add more...
@@ -165,7 +166,7 @@ int free_mem(memory_table_t *memory, int loc, int size)
 	return 0;
 }
 
-// Function to 
+// Function to
 pending_process_t *load_dispatchlist(char *dispatch_file)
 {
      FILE *file;
@@ -182,9 +183,9 @@ pending_process_t *load_dispatchlist(char *dispatch_file)
          num_lines++;
          if(feof(file)) break;
      }
-     
+
      fclose(file);
-     
+
      pending_process_t *pending_processes = calloc(num_lines, sizeof(pending_process_t));
 
      int num_process = 0;
@@ -208,7 +209,7 @@ pending_process_t *load_dispatchlist(char *dispatch_file)
                  case 1: temp_process->priority = atoi(token); break;
                  case 2: temp_process->proc_time = atoi(token); break;
                  case 3: temp_process->memory_needed = atoi(token); break;
-                 
+
                  case 4: temp_process->n_printers = atoi(token); break;
                  case 5: temp_process->n_scanners = atoi(token); break;
                  case 6: temp_process->n_modems = atoi(token); break;
