@@ -199,7 +199,30 @@ int main(int argc, char *argv[])
   
 static void SignalHandler(int sig)        // trap signals from shell/system 
 {	
-/*WRITE YOUR CODE HERE*/
+	/*WRITE YOUR CODE HERE*/
+	switch (sig) {
+		case SIGINT:
+			signal_SIGINT = TRUE;
+			break;
+		case SIGQUIT:
+			signal_SIGQUIT = TRUE;
+			break;
+		case SIGHUP:
+			signal_SIGHUP = TRUE;
+			break;
+		case SIGTERM:
+			signal_SIGTERM = TRUE;
+			break;
+		case SIGABRT:
+			signal_SIGABRT = TRUE;
+			break;
+		case SIGCONT:
+			signal_SIGCONT = TRUE;
+			break;
+		case SIGTSTP:
+			signal_SIGTSTP = TRUE;
+			break;
+	}
 }
 
 /*******************************************************************
